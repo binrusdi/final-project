@@ -1,6 +1,6 @@
 @font-face {
-  font-family: inter;
-  src: url(assets/fonts/Inter-Thin.ttf);
+  font-family: kanit;
+  src: url(assets/fonts/Kanit-Regular.ttf);
 }
 
 * {
@@ -13,16 +13,29 @@
   body {
     padding: 20px;
     font-size: 2rem;
+    font-family: kanit;
   }
 
   header {
     display: grid;
-    justify-content: center;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
     grid-template-columns: auto auto;
   }
   header > img {
-    height: auto;
+    height: 8rem;
     max-width: 10rem;
     border-radius: 5rem;
+  }
+  header h1, h2 {
+    font-weight: bold;
+  }
+
+  nav ul {
+    width: 100%;
+    list-style: none;
+    margin: 20px auto;
+    text-align: center;
   }
 }
