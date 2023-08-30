@@ -7,35 +7,63 @@
   margin: 0;
   padding: 0;
   font-size: 16px;
+  /* border: 1px solid blue; */
 }
 
-@media only screen and (max-width:800px) {
-  body {
-    padding: 20px;
-    font-size: 2rem;
-    font-family: kanit;
+body {
+  font-size: 2rem;
+  color: #116A7B;
+  font-family: kanit;
+}
+header {
+  display: grid;
+  margin: 2rem 0;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: auto auto;
+}
+header > #image {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(assets/rusdi.png);
+}
+nav {
+  display: grid;
+  margin: .5rem 0;
+  align-items: center;
+  justify-items: center;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(3, auto);
+}
+.item-menu {
+  width: auto;
+  height: 2rem;
+  display: grid;
+  align-items: center;
+  box-sizing: border-box;
+}
+.item-menu > a {
+  color: #116A7B;
+  text-decoration: none;
+}
+
+
+@keyframes menyebar {
+  from {
+    border-bottom: 4px solid #116A7B;
   }
 
-  header {
-    display: grid;
-    text-align: center;
-    align-items: center;
-    justify-items: center;
-    grid-template-columns: auto auto;
+  to {
+    border-bottom: 1px solid #6096B4;
   }
-  header > img {
-    height: 8rem;
-    max-width: 10rem;
-    border-radius: 5rem;
-  }
-  header h1, h2 {
-    font-weight: bold;
-  }
-
-  nav ul {
-    width: 100%;
-    list-style: none;
-    margin: 20px auto;
-    text-align: center;
-  }
+}
+.item-menu:hover {
+  animation-duration: 1.5s;
+  animation-name: menyebar;
+  animation-iteration-count: infinite;
 }
