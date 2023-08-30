@@ -7,7 +7,7 @@
   margin: 0;
   padding: 0;
   font-size: 16px;
-  /* border: 1px solid blue; */
+  /* border: 1px solid pink; */
 }
 
 body {
@@ -66,4 +66,37 @@ nav {
   animation-duration: 1.5s;
   animation-name: menyebar;
   animation-iteration-count: infinite;
+}
+
+#pages {
+  display: grid;
+  gap: 1rem 1rem;
+  margin: 2rem 2rem;
+  text-align: center;
+  box-sizing: border-box;
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(2, 50%);
+}
+.page {
+  width: 100%;
+  border-top: none;
+  border-right: none;
+  box-sizing: border-box;
+  border-left: 1px solid #116A7B;
+  border-bottom-left-radius: .7rem;
+  border-bottom: 1px solid #116A7B;
+}
+.page > p {
+  text-indent: 2rem;
+  margin: .5rem .5rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+@media screen and (max-width: 780px) {
+  #pages {
+    gap: 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
