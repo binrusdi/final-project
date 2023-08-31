@@ -42,3 +42,44 @@ backToHome.addEventListener("click", function backToHome() {
 // if (path === "/index.html") {
 //     alert("Jika anda tersesat, klik photo profile");
 //   }
+
+
+// Fungsi untuk mengambil konten dari file HTML
+async function getContentFromHTML(filename, containerId) {
+    const response = await fetch(filename);
+    const html = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const elements = doc.getElementsByTagName('p');
+    if (elements.length > 1) {
+        return elements[1].innerHTML;
+    } else {
+        return '';
+    }
+    
+}
+
+// Memanggil fungsi untuk setiap container dan file HTML yang sesuai
+console.log(getContentFromHTML('about.html', 'p'[1]));
+getContentFromHTML('skills.html', 'p'[1]);
+getContentFromHTML('award.html', 'p'[1]);
+getContentFromHTML('experiences.html', 'p'[1]);
+getContentFromHTML('interests.html', 'p'[1]);
+getContentFromHTML('education.html', 'p'[1]);
+
+// Fungsi untuk memasukkan konten ke dalam container
+async function populateContainer(containerId, filename) {
+    const container = document.querySelector(containerId);
+    console.log(container);
+    const content = await getContentFromHTML(filename, "p");
+    container.innerHTML = content;
+}
+
+// Memanggil fungsi untuk mengisi container dengan content
+// populateContainer('p''[1]', 'index.html');
+// populateContainer('about', 'about.html');
+// populateContainer('award', 'award.html');
+// populateContainer('interests', 'interests.html');
+// populateContainer('experiences', 'experiences.html');
+// populateContainer('education', 'education.html');
+
