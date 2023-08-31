@@ -11,7 +11,7 @@
 }
 
 body {
-  font-size: 2rem;
+  font-size: 7rem;
   color: #116A7B;
   font-family: kanit;
 }
@@ -44,7 +44,7 @@ nav {
   position: sticky;
   background-color: rgba(255, 255, 255, 0.7); /* Warna putih dengan transparansi 0.7 */
   backdrop-filter: blur(10px); /* Efek blur pada latar belakang */
-  border-radius: 10px; /* Atur radius border sesuai kebutuhan */
+  /*border-radius: 10px;  Atur radius border sesuai kebutuhan */
   padding: 20px; /* Atur padding sesuai kebutuhan */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk kedalaman */
 }
