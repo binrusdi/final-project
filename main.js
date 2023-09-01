@@ -12,7 +12,7 @@ const defaultNavStyles = {
 };
 document.addEventListener("scroll", () => {
     const bodyScrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-    
+
     if (bodyScrollTop === 0) {
         for (const style in defaultNavStyles) {
             nav.style[style] = defaultNavStyles[style];
@@ -44,42 +44,25 @@ backToHome.addEventListener("click", function backToHome() {
 //   }
 
 
-// Fungsi untuk mengambil konten dari file HTML
-async function getContentFromHTML(filename, containerId) {
-    const response = await fetch(filename);
-    const html = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-    const elements = doc.getElementsByTagName('p');
-    if (elements.length > 1) {
-        return elements[1].innerHTML;
-    } else {
-        return '';
+
+
+// Mengambil semua elemen dengan class "subpage"
+const subpageElements = document.querySelectorAll('.subpage');
+
+// Loop melalui setiap elemen "subpage" dan mengambil konten dari elemen <p>
+subpageElements.forEach((subpageElement) => {
+    const paragraphElement = subpageElement.querySelector('p');
+    if (paragraphElement) {
+        const paragraphContent = paragraphElement.textContent;
+
+        // Menemukan elemen .page yang sesuai dengan id dari elemen subpage
+        const pageId = document.querySelectorAll(".page p");
+        console.log(pageId);
+        const contentElement = document.querySelector(`#${pageId} .content`);
+
+        if (contentElement) {
+            contentElement.textContent = paragraphContent;
+        }
     }
-    
-}
-
-// Memanggil fungsi untuk setiap container dan file HTML yang sesuai
-console.log(getContentFromHTML('about.html', 'p'[1]));
-getContentFromHTML('skills.html', 'p'[1]);
-getContentFromHTML('award.html', 'p'[1]);
-getContentFromHTML('experiences.html', 'p'[1]);
-getContentFromHTML('interests.html', 'p'[1]);
-getContentFromHTML('education.html', 'p'[1]);
-
-// Fungsi untuk memasukkan konten ke dalam container
-async function populateContainer(containerId, filename) {
-    const container = document.querySelector(containerId);
-    console.log(container);
-    const content = await getContentFromHTML(filename, "p");
-    container.innerHTML = content;
-}
-
-// Memanggil fungsi untuk mengisi container dengan content
-// populateContainer('p''[1]', 'index.html');
-// populateContainer('about', 'about.html');
-// populateContainer('award', 'award.html');
-// populateContainer('interests', 'interests.html');
-// populateContainer('experiences', 'experiences.html');
-// populateContainer('education', 'education.html');
+});
 
