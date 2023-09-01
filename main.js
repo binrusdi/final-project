@@ -35,34 +35,6 @@ backToHome.addEventListener("click", function backToHome() {
     window.location.href = "index.html"
 });
 
-// let host = window.location.host;
-// let path = window.location.pathname;
-// let halamanSekarang = `${host}+${path}`;
-
-// if (path === "/index.html") {
-//     alert("Jika anda tersesat, klik photo profile");
-//   }
 
 
-
-
-// Mengambil semua elemen dengan class "subpage"
-const subpageElements = document.querySelectorAll('.subpage');
-
-// Loop melalui setiap elemen "subpage" dan mengambil konten dari elemen <p>
-subpageElements.forEach((subpageElement) => {
-    const paragraphElement = subpageElement.querySelector('p');
-    if (paragraphElement) {
-        const paragraphContent = paragraphElement.textContent;
-
-        // Menemukan elemen .page yang sesuai dengan id dari elemen subpage
-        const pageId = document.querySelectorAll(".page p");
-        console.log(pageId);
-        const contentElement = document.querySelector(`#${pageId} .content`);
-
-        if (contentElement) {
-            contentElement.textContent = paragraphContent;
-        }
-    }
-});
 
